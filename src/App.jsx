@@ -3,7 +3,13 @@ import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 const App = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { error },
+  } = useForm();
+
+  console.log("ERROR", error);
   return (
     <Container
       style={{
@@ -35,7 +41,7 @@ const App = () => {
             border: "none",
             borderRadius: "10px",
           }}
-          {...register("name")}
+          {...register("name", { required: "Name field is required" })}
           type="text"
           placeholder="Name"
         />
@@ -48,7 +54,7 @@ const App = () => {
             border: "none",
             borderRadius: "10px",
           }}
-          {...register("email")}
+          {...register("email", { required: "Email field is required" })}
           type="email"
           placeholder="Email"
         />
@@ -61,7 +67,7 @@ const App = () => {
             border: "none",
             borderRadius: "10px",
           }}
-          {...register("password")}
+          {...register("password", { required: "Password field is required" })}
           type="password"
           placeholder="Password"
         />
