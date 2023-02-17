@@ -6,10 +6,10 @@ const App = () => {
   const {
     register,
     handleSubmit,
-    formState: { error },
+    formState: { errors },
   } = useForm();
 
-  console.log("ERROR", error);
+  console.log("ERROR", errors);
   return (
     <Container
       style={{
@@ -67,7 +67,13 @@ const App = () => {
             border: "none",
             borderRadius: "10px",
           }}
-          {...register("password", { required: "Password field is required" })}
+          {...register("password", {
+            required: "Password field is required",
+            minLength: {
+              value: 6,
+              message: "Password must be at least 6 characters long",
+            },
+          })}
           type="password"
           placeholder="Password"
         />
