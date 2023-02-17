@@ -2,12 +2,20 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
+import "../form/Form.scss";
+
 const Form = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+    },
+  });
 
   console.log("ERROR", errors);
   return (
@@ -22,9 +30,8 @@ const Form = () => {
       }}
     >
       <form
-        onSubmit={handleSubmit((data) => {
-          console.log("DATA", data);
-        })}
+        className="form-wrap"
+        onSubmit={handleSubmit((data) => {})}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -45,6 +52,7 @@ const Form = () => {
           type="text"
           placeholder="Name"
         />
+        <p className="error-message">{errors?.name?.message}</p>
         <input
           style={{
             width: "500px",
@@ -58,6 +66,7 @@ const Form = () => {
           type="email"
           placeholder="Email"
         />
+        <p className="error-message">{errors?.email?.message}</p>
         <input
           style={{
             width: "500px",
@@ -77,6 +86,7 @@ const Form = () => {
           type="password"
           placeholder="Password"
         />
+        <p className="error-message">{errors?.password?.message}</p>
         <button
           style={{
             width: "500px",
