@@ -1,23 +1,31 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 
 const App = () => {
   return (
-    <div style={{ width: "600px", height: "400px", backgroundColor: "purple" }}>
+    <Container
+      style={{
+        width: "600px",
+        height: "400px",
+        backgroundColor: "purple",
+        padding: "10px",
+        marginTop: "150px",
+        borderRadius: "5px",
+      }}
+    >
       <form
         style={{
           display: "flex",
           flexDirection: "column",
-          // width: "500px",
-          // alignItems: "center",
-          justifyContent: "center",
-          padding: "10px",
+          width: "500px",
+          marginTop: "20px",
         }}
       >
         <input
           style={{
             width: "500px",
-            marginLeft: "30px",
+            marginLeft: "37px",
             padding: "20px",
             margin: "10px",
             border: "none",
@@ -29,7 +37,7 @@ const App = () => {
         <input
           style={{
             width: "500px",
-            marginLeft: "30px",
+            marginLeft: "37px",
             padding: "20px",
             margin: "10px",
             border: "none",
@@ -41,7 +49,7 @@ const App = () => {
         <input
           style={{
             width: "500px",
-            marginLeft: "30px",
+            marginLeft: "37px",
             padding: "20px",
             margin: "10px",
             border: "none",
@@ -53,7 +61,7 @@ const App = () => {
         <button
           style={{
             width: "500px",
-            marginLeft: "30px",
+            marginLeft: "37px",
             padding: "20px",
             margin: "10px",
             border: "none",
@@ -64,7 +72,7 @@ const App = () => {
           Submit
         </button>
       </form>
-    </div>
+    </Container>
   );
 };
 
