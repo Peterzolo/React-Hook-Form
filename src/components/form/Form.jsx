@@ -8,6 +8,7 @@ const Form = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -17,12 +18,12 @@ const Form = () => {
     },
   });
 
-  console.log("ERROR", errors);
+  //   console.log("ERROR", errors);
+  const watchItem = watch("name");
   return (
     <Container
       style={{
         width: "600px",
-        height: "400px",
         backgroundColor: "purple",
         padding: "10px",
         marginTop: "150px",
@@ -87,6 +88,8 @@ const Form = () => {
           placeholder="Password"
         />
         <p className="error-message">{errors?.password?.message}</p>
+
+        <div>{watchItem}</div>
         <button
           style={{
             width: "500px",
