@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 const App = () => {
-  const { register } = useForm();
+  const { register, handleSubmit } = useForm();
   return (
     <Container
       style={{
@@ -16,6 +16,9 @@ const App = () => {
       }}
     >
       <form
+        onSubmit={handleSubmit((data) => {
+          console.log("DATA", data);
+        })}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -71,7 +74,7 @@ const App = () => {
             border: "none",
             borderRadius: "10px",
           }}
-          type="button"
+          type="submit"
         >
           Submit
         </button>
